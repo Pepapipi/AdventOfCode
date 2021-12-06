@@ -2,7 +2,7 @@ package Jour6;
 import java.io.*;
 import java.util.*;
 
-public class partie1 {
+public class partie2 {
     
     public static void main(String[] args) throws IOException
     {
