@@ -1,0 +1,8 @@
+Pour résoudre le jour 6 il faudrait songer à partir sur un tableau et faire un parcours de tableau
+Et à chaque parcours on manipule les chiffres..
+
+
+//Pour le calcul final
+for (int n : tab) {
+    somme = somme + n;
+}

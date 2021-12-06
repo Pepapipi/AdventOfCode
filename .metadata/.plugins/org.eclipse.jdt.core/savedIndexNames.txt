@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\33781\Documents\Pour_moi\AdventOfCode\.metadata\.plugins\org.eclipse.jdt.core
