@@ -2,7 +2,4 @@ Pour résoudre le jour 6 il faudrait songer à partir sur un tableau et faire un
 Et à chaque parcours on manipule les chiffres..
 
 
-//Pour le calcul final
-for (int n : tab) {
-    somme = somme + n;
-}
+Mettre une liste pleine dans un tableau et ensuite compter la taille du tableau.
