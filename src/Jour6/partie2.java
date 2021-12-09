@@ -1,243 +1,107 @@
 package Jour6;
 import java.io.*;
 import java.util.*;
-
+import java.nio.file.*;
+import static java.nio.file.StandardOpenOption.*;
 public class partie2 {
     
     public static void main(String[] args) throws IOException
     {
-        List <Integer> suiteDeChiffres = new ArrayList<>();
-        List <Integer> suiteDeChiffres2 = new ArrayList<>();
-        List <Integer> suiteDeChiffres3 = new ArrayList<>();
-        List <Integer> suiteDeChiffres4 = new ArrayList<>();
-        List <Integer> suiteDeChiffres5 = new ArrayList<>();
-        List <Integer> suiteDeChiffres6 = new ArrayList<>();
-        List <Integer> suiteDeChiffres7 = new ArrayList<>();
-        File fichier = new File("C:\\Users\\33781\\Documents\\Pour_moi\\AdventOfCode\\src\\Jour6\\input.txt");
-		BufferedReader buff = new BufferedReader(new FileReader(fichier));
-        String[] ligne = buff.readLine().split(",");
+       ;
+            //String s = null;
 
-        for(String n : ligne)
-        {
-            int chiffre = Integer.parseInt(n);
-            suiteDeChiffres.add(chiffre);
-        }
+            //s = reader.readLine();
+            //System.out.println(s);
+            //input.close();
+        
 
-        //On s'occupe de la première liste
-        for (int i=0; i<80; i++)
+        for (int i=0; i < 3; i++)
         {
+            Path chemin = Paths.get("F:\\Desktop\\AdventOfCode\\src\\Jour6\\input2.txt");
+            InputStream input = null;
+            input = Files.newInputStream(chemin);
+            
+            BufferedReader buff = new BufferedReader(new InputStreamReader(input));
+            
+            //On récupère la ligne
+            String ligne = buff.readLine();
+            System.out.println(ligne);
+             
+            // Ecrire dans le fichier
             int nbrAAjouter = 0;
-            for (int y=0 ; y<suiteDeChiffres.size() ; y++)
+            char temp;
+            for (int y=0 ; y<ligne.length() ; y++)
             {
-              if (!(suiteDeChiffres.get(y) == 0))
-              {
-                  suiteDeChiffres.set(y, suiteDeChiffres.get(y)-1);
-              }
-              else
-              {
-                suiteDeChiffres.set(y, 6);
+                temp = ligne.charAt(y);
+                if (temp == '0')
+                {
                 nbrAAjouter++;
-              }
-            }
-
-            for(int a=0; a<nbrAAjouter; a++)
-            {
-                if (!(i==79))
-                {
-                    suiteDeChiffres.add(8);
-                }
-                else
-                {
-                    suiteDeChiffres2.add(8);
+                String
                 }
                 
             }
-        }
-    /* ---------------------------------------------------------------------------------------------
-    -------------------------------------------------------------------------------------------------
-    ------------------------------------------------------------------------------------------------*/
-    //On s'occupe de la deuxième + première liste
-    for (int i=80; i<160; i++)
-    {
-        //On refait ce qu'on a fait à la première liste
-        int nbrAAjouter = 0;
-        for (int y=0 ; y<suiteDeChiffres.size() ; y++)
-        {
-            if (!(suiteDeChiffres.get(y) == 0))
+
+            if (ligne.contains("0"))
             {
-                suiteDeChiffres.set(y, suiteDeChiffres.get(y)-1);
+                String newLigne = ligne.replace("1","0").replace("2", "1").replace("3", "2").replace("4","3" ).replace("5","4").replace("6","5").replace("7","6").replace("8","7");
+                //On remplace remplace l'ancienne ligne par la nouvelle
+                BufferedOutputStream output;
+                String remplaceLigne = newLigne.replace("0", "6");
+                byte[] data = remplaceLigne.getBytes();
+                output = new BufferedOutputStream(Files.newOutputStream(chemin, WRITE));
+
+                output.write(data);
+ 
+                // vider le tampon
+                output.flush();
+ 
+                // fermer le fichier
+                output.close();
             }
+
             else
             {
-            suiteDeChiffres.set(y, 6);
-            nbrAAjouter++;
-            }
-        }
+                String newLigne = ligne.replace("1","0").replace("2", "1").replace("3", "2").replace("4","3" ).replace("5","4").replace("6","5").replace("7","6").replace("8","7");
+                //On remplace remplace l'ancienne ligne par la nouvelle
+                BufferedOutputStream output;
+                byte[] data = newLigne.getBytes();
+                output = new BufferedOutputStream(Files.newOutputStream(chemin, WRITE));
 
+                output.write(data);
+ 
+                // vider le tampon
+                output.flush();
+ 
+                // fermer le fichier
+                output.close();
+
+            }
         
-        // On parcourt la deuxième liste
-        for (int yy=0 ; yy<suiteDeChiffres2.size() ; yy++)
-        {
-            if (!(suiteDeChiffres2.get(yy) == 0))
+
+            for(int a=0; a<nbrAAjouter; a++)
             {
-                suiteDeChiffres2.set(yy, suiteDeChiffres2.get(yy)-1);
+                
+
+                BufferedOutputStream outputt;
+                String o = ",8";
+                byte[] datat = o.getBytes();
+                outputt = new BufferedOutputStream(Files.newOutputStream(chemin, WRITE,APPEND));
+                // Ecrire dans le fichier
+                outputt.write(datat);
+ 
+                // vider le tampon
+                outputt.flush();
+ 
+                // fermer le fichier
+                outputt.close();
+                
             }
-            else
-            {
-            suiteDeChiffres2.set(yy, 6);
-            nbrAAjouter++;
-            }
-        }
+            //System.out.println(suiteDeChiffres.size());
+            input.close();
+            buff.close();
 
-        //Mais on ajoute les nouvelles valeurs dans un autre liste
-        for(int a=0; a<nbrAAjouter; a++)
-        {
-            if (!(i==159))
-            {
-                suiteDeChiffres2.add(8);
-            }
-            else
-            {
-                suiteDeChiffres3.add(8);
-            }
-        }
-    }
-    /*------------------------------------------------------------------------------------------
-    ----------------------------------------------------------------------------------------------
-    ---------------------------------------------------------------------------------------------*/
-
-    //On s'occupe de la troisième + deuxième + première liste
-    for (int i=160; i<162; i++)
-    {
-    //On refait ce qu'on a fait à la première liste
-    int nbrAAjouter = 0;
-    for (int y=0 ; y<suiteDeChiffres.size() ; y++)
-    {
-    if (!(suiteDeChiffres.get(y) == 0))
-    {
-        suiteDeChiffres.set(y, suiteDeChiffres.get(y)-1);
-    }
-    else
-    {
-        suiteDeChiffres.set(y, 6);
-        nbrAAjouter++;
-    }
-    }
-
-    
-    // On parcourt la deuxième liste
-    for (int yy=0 ; yy<suiteDeChiffres2.size() ; yy++)
-    {
-        if (!(suiteDeChiffres2.get(yy) == 0))
-        {
-            suiteDeChiffres2.set(yy, suiteDeChiffres2.get(yy)-1);
-        }
-        else
-        {
-            suiteDeChiffres2.set(yy, 6);
-            nbrAAjouter++;
-        }
-    }
-
-    // On parcourt la troisième liste
-    for (int yyy=0 ; yyy<suiteDeChiffres3.size() ; yyy++)
-    {
-        if (!(suiteDeChiffres3.get(yyy) == 0))
-        {
-            suiteDeChiffres3.set(yyy, suiteDeChiffres3.get(yyy)-1);
-        }
-        else
-        {
-            suiteDeChiffres3.set(yyy, 6);
-            nbrAAjouter++;
-        }
-    }
-
-    //Mais on ajoute les nouvelles valeurs dans un autre liste
-    for(int a=0; a<nbrAAjouter; a++)
-    {
-        if (!(i==161))
-        {
-            suiteDeChiffres3.add(8);
-        }
-        else
-        {
-            //suiteDeChiffres4.add(8);
         }
         
+ 
+    } 
     }
-        
-        /*
-        //On s'occupe de la quatrième + troisième + deuxième + première liste
-        for (int i=230; i<256; i++)
-        {
-        //On refait ce qu'on a fait à la première liste
-        int nbrAAjouter = 0;
-        for (int y=0 ; y<suiteDeChiffres.size() ; y++)
-        {
-            if (!(suiteDeChiffres.get(y) == 0))
-            {
-                suiteDeChiffres.set(y, suiteDeChiffres.get(y)-1);
-            }
-            else
-            {
-                suiteDeChiffres.set(y, 6);
-                nbrAAjouter++;
-            }
-        }
-
-        
-        // On parcourt la deuxième liste
-        for (int yy=0 ; yy<suiteDeChiffres2.size() ; yy++)
-        {
-            if (!(suiteDeChiffres2.get(yy) == 0))
-            {
-                suiteDeChiffres2.set(yy, suiteDeChiffres2.get(yy)-1);
-            }
-            else
-            {
-                suiteDeChiffres2.set(yy, 6);
-                nbrAAjouter++;
-            }
-        }
-
-        // On parcourt la troisième liste
-        for (int yyy=0 ; yyy<suiteDeChiffres3.size() ; yyy++)
-        {
-            if (!(suiteDeChiffres3.get(yyy) == 0))
-            {
-                suiteDeChiffres3.set(yyy, suiteDeChiffres3.get(yyy)-1);
-            }
-            else
-            {
-                suiteDeChiffres3.set(yyy, 6);
-                nbrAAjouter++;
-            }
-        }
-
-        // On parcourt la quatrieme liste
-        for (int yyyy=0 ; yyyy<suiteDeChiffres3.size() ; yyyy++)
-        {
-            if (!(suiteDeChiffres4.get(yyyy) == 0))
-            {
-                suiteDeChiffres4.set(yyyy, suiteDeChiffres3.get(yyyy)-1);
-            }
-            else
-            {
-                suiteDeChiffres4.set(yyyy, 6);
-                nbrAAjouter++;
-            }
-        }
-
-        //Mais on ajoute les nouvelles valeurs dans un autre liste
-        for(int a=0; a<nbrAAjouter; a++)
-        {
-            suiteDeChiffres4.add(8);
-        }*/
-        
-        System.out.println(suiteDeChiffres.size()+suiteDeChiffres2.size()+suiteDeChiffres3.size());
-        buff.close();
-    }
-}
-}
-
