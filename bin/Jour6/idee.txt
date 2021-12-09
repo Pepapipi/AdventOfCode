@@ -1,5 +1,6 @@
 Pour résoudre le jour 6 il faudrait songer à partir sur un tableau et faire un parcours de tableau
-Et à chaque parcours on manipule les chiffres..
+Et à chaque parcours on manipule les chiffres
 
+Écrire dans un fichier
 
-Mettre une liste pleine dans un tableau et ensuite compter la taille du tableau.
+Pour chaque tour de boucle, ouvrir le fichier -> récupérer les données -> traiter les données -> écrire de nouveau sur le fichier -> fermer le fichier

@@ -7,16 +7,16 @@ public class partie1 {
     public static void main(String[] args) throws IOException
     {
         List <Integer> suiteDeChiffres = new ArrayList<>();
-        File fichier = new File("C:\\Users\\33781\\Documents\\Pour_moi\\AdventOfCode\\src\\Jour6\\input.txt");
+        File fichier = new File("F:\\Desktop\\AdventOfCode\\src\\Jour6\\test.txt");
 		BufferedReader buff = new BufferedReader(new FileReader(fichier));
         String[] ligne = buff.readLine().split(",");
 
         for(String n : ligne)
         {
-            int chiffre = Integer.parseInt(n);
+            Integer chiffre = Integer.parseInt(n);
             suiteDeChiffres.add(chiffre);
         }
-        for (int i=0; i<256; i++)
+        for (int i=0; i<80; i++)
         {
             int nbrAAjouter = 0;
             for (int y=0 ; y<suiteDeChiffres.size() ; y++)
