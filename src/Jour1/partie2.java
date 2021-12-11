@@ -27,6 +27,7 @@ public class partie2 {
                 somme ++;
             }
         }
+        ligne.close();
         System.out.println(somme);
     }
 }

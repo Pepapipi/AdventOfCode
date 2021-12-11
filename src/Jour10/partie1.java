@@ -85,6 +85,7 @@ public class partie1
             }
 
         }
+        ligne.close();
         System.out.println(somme);
             
     }

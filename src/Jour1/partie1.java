@@ -23,6 +23,7 @@ public class partie1 {
                 somme ++;
             }
         }
+        ligne.close();
         System.out.println(somme);
     }
 }

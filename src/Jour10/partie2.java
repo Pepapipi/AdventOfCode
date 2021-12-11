@@ -111,6 +111,7 @@ public class partie2
                 
                 
         }
+        ligne.close();
         Collections.sort(sommeCarac);
         System.out.println(sommeCarac.get(sommeCarac.size()/2));
 
