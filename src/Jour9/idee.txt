@@ -1,0 +1,4 @@
+Crée 3 listes
+Une qui récupère les valeurs dans haut
+Une qui récupère les valeurs à comparer
+Une qui récupère les valeurs d'en dessous
