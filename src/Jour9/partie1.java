@@ -27,17 +27,17 @@ public class partie1 {
             
         }
 
-        int y =0;
-        for (int i = 1 ; i <listeActuelle.size(); i++)
+        int indexSuperieur =0;
+        for (int i = 0 ; i <listeActuelle.size(); i++)
         {
-            
+            indexSuperieur++;
+            int chiffreApres = listeActuelle.get(indexSuperieur);
             int chiffreActuel = listeActuelle.get(i);
-            int chiffreAvant = listeActuelle.get(y++);
+            int chiffreDessous = listeFuture.get(i);
+
+            /* Faire en sorte qu'on ne sorte pas de la liste */
             
-            if(chiffreActuel<chiffreAvant)
-            {
-                System.out.println(chiffreAvant+" "+chiffreActuel);
-            }
+            
         }
         
 
